@@ -20,10 +20,10 @@ class TransactionManager:
             if inp == 'quit':
                 self.show_transactions(self.user_name)
                 break
-            if inp.lower().split(' ')[0] in self.transactions:
-                self.transactions[inp.lower().split(' ')[0]] += int(inp.lower().split(' ')[1]),
+            if inp.split(' ')[0] in self.transactions:
+                self.transactions[inp.split(' ')[0]] += int(inp.split(' ')[1]),
             else:
-                self.transactions[inp.lower().split(' ')[0]] = (int(inp.lower().split(' ')[1]),)
+                self.transactions[inp.split(' ')[0]] = (int(inp.split(' ')[1]),)
         with open(self.user_name + '.pkl', 'wb') as file:
             pickle.dump(self, file)
 
